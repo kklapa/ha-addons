@@ -1,0 +1,6 @@
+---
+channel: stable
+addons:
+  pullup_bot:
+    repository: kklapa/pull_up_repo
+    target: pullup_bot
