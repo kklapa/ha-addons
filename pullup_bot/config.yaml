@@ -1,22 +1,21 @@
-name: Pull-Up Bot
-version: "1.0"
+name: "Pull-Up Bot"
+version: "1.0.0"
 slug: pullup_bot
-description: Discord bot для аналізу підтягувань
-url: "https://github.com/kklapa/pull_up_repo/pullup_bot"
-image: ghcr.io/yourusername/pullup_bot:{arch}
-startup: services
-boot: auto
-init: false
-homeassistant_api: true
-hassio_api: true
-ports:
-  8080/tcp: null
+description: "Discord bot для аналізу підтягувань"
 arch:
   - amd64
   - aarch64
   - armv7
+url: "https://github.com/kklapa/pull_up_repo"
+ports: {}
 map:
-  - "config:rw"
+  - type: share
+    read_only: false
+  - type: homeassistant_config
+    read_only: false
+    path: /config
+image: "ghcr.io/kklapa/{arch}-pullup-bot"
+init: false
 options:
   bot_token: ""
   guild_id: 0
