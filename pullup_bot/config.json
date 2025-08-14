@@ -1,11 +1,16 @@
 {
   "name": "Pull-Up Bot",
-  "version": "1.0",
+  "version": "1.0.0",
   "slug": "pullup_bot",
   "description": "Discord bot для аналізу підтягувань",
+  "url": "https://github.com/kklapa/pull_up_repo",
+  "init": false,
+  "hassio_api": true,
+  "hassio_role": "homeassistant",
   "arch": ["amd64", "armv7", "arm64"],
-  "startup": "services",
-  "boot": "auto",
+  "map": [
+    "addon_config:rw"
+  ],
   "options": {
     "bot_token": "",
     "guild_id": 0,
@@ -15,5 +20,7 @@
     "bot_token": "str",
     "guild_id": "int",
     "channel_id": "int"
-  }
+  },
+  "ports": {},
+  "image": "ghcr.io/kklapa/pullup_bot/{arch}"
 }
