@@ -1,16 +1,12 @@
 name: Pull-Up Bot
-version: 1.0
+version: "1.0"
 slug: pullup_bot
 description: Discord bot для аналізу підтягувань
-arch:
-  - amd64
-  - armv7
-  - arm64
-init: false
-hassio_api: true
-hassio_role: homeassistant
+arch: ["amd64", "armv7", "arm64"]
+startup: "services"
+boot: "auto"
 options:
-  bot_token: ''
+  bot_token: ""
   guild_id: 0
   channel_id: 0
 schema:
