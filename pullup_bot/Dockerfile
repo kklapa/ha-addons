@@ -1,13 +1,16 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-WORKDIR /app
+# Встановлюємо Python та необхідні пакети
+RUN apk add --no-cache python3 py3-pip
 
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+# Копіюємо скрипт бота
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
 
-COPY bot.py /app/
-COPY run.sh /app/
-RUN chmod +x /app/run.sh
+COPY pull_up /pull_up
 
-CMD ["/app/run.sh"]
+# Встановлюємо залежності Python
+RUN pip3 install --no-cache-dir -r /pull_up/requirements.txt
+
+CMD ["/run.sh"]
